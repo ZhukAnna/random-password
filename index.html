@@ -5,35 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Генератор рандомного пароля</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
+    <div class="wrapper">
+        <form action="#">
+            <fieldset>
+                <legend>Рандомный пароль</legend>
+                <p>
+                    Может включать в себя:<br />
+                    <label for="nums">Числа</label>
+                    <input type="checkbox" name="nums" id="nums" checked>
+                    <label for="letters">Строчные буквы</label>
+                    <input type="checkbox" name="letters" id="letters">
+                    <label for="upletters">Заглавные буквы</label>
+                    <input type="checkbox" name="upletters" id="upletters">
+                    <label for="symbols">Символы</label>
+                    <input type="checkbox" name="symbols" id="symbols">
+                </p>
+                <p>
+                    Длина пароля:<br />
+                    <input type="number" name="length" id="length" min="1" max="20" value="8" required>
+                </p>
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+            </fieldset>
+        </form>
+    </div>
+    <script src="script.js"></script>
 </body>
-<div class="wrapper">
-    <form action="" method="GET">
-        <fieldset>
-            <legend>Рандомный пароль</legend>
-            <p>
-                Может включать в себя:<br />
-                <label for="nums">Числа</label>
-                <input type="checkbox" name="nums" id="nums" checked>
-                <label for="letters">Строчные буквы</label>
-                <input type="checkbox" name="letters" id="letters">
-                <label for="upletters">Заглавные буквы</label>
-                <input type="checkbox" name="upletters" id="upletters">
-                <label for="symbols">Символы</label>
-                <input type="checkbox" name="symbols" id="symbols">
-            </p>
-            <p>
-                Длина пароля:<br />
-                <input type="number" name="length" id="length" min="1" max="20" value="8" required>
-            </p>
-            <p>
-                <input type="submit" value="Submit" />
-            </p>
-        </fieldset>
-    </form>
-</div>
+
 
 </html>

@@ -1,26 +1,24 @@
 'use strict';
 
-const pass = {
-    allsymbols: "",
-    length: 1,
-    nums: "1234567890",
-    letters: "qwertyuiopasdfghjklzxcvbnm",
-    upletters: "QWERTYUIOPASDFGHJKLZXCVBNM",
-    symbols: "!$%#&*-+",
+const allsymbols = "",
+    nums = "1234567890",
+    letters = "qwertyuiopasdfghjklzxcvbnm",
+    upletters = "QWERTYUIOPASDFGHJKLZXCVBNM",
+    symbols = "!$%#&*-+";
 
-    randomPassword: function () {
+function randomPassword() {
 
-        let password = "";
+    let password = "";
 
-        for (i = 0; i <= pass.length; i++) {
+    for (i = 0; i <= length; i++) {
 
-            let pickRandomSymbols = function (symbol) {
-                return symbol[Math.floor(Math.random() * symbol.length)]
-            }
-
-            password += pickRandomSymbols(allsymbols);
+        let pickRandomSymbols = function (symbol) {
+            return symbol[Math.floor(Math.random() * symbol.length)]
         }
 
-        return password;
+        password += pickRandomSymbols(allsymbols);
     }
+
+    return password;
 }
+
