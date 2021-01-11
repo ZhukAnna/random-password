@@ -17,30 +17,27 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     document.querySelectorAll('input[type=checkbox]').forEach(function (elem) {
-
+        allsymbols = "";
 
         if (elem.checked) {
             Object.keys(passIngridients).forEach(function (key) {
 
                 if (key == elem.name) {
-
                     console.log(`Добавляем...${elem.name}`);
-                    allsymbols += passIngridients[key]; 
+                    allsymbols += passIngridients[key];
                     console.log(allsymbols);
                 }
             });
-
         }
-
-        if (allsymbols == "") {
-            console.log('Error');
-        }
-
     });
+
+    if (allsymbols == "") {
+        console.log('Error');
+    }
 
     randomPassword();
 
-    response();
+    resp();
 
 });
 
@@ -62,9 +59,11 @@ function randomPassword() {
     return password;
 }
 
-function response() {
-    let response = document.createElement('span');
-    //response.classList.add('response');
-    response.textContent = password;
-    form.append(response);
+function resp() {
+    // document.querySelector('span').remove();
+
+    let resp = document.createElement('span');
+    // resp.classList.add('response');
+    resp.textContent = password;
+    form.append(resp);
 }
