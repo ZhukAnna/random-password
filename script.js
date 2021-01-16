@@ -17,7 +17,6 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     document.querySelectorAll('input[type=checkbox]').forEach(function (elem) {
-        allsymbols = "";
 
         if (elem.checked) {
             Object.keys(passIngridients).forEach(function (key) {
@@ -36,8 +35,8 @@ form.addEventListener('submit', (event) => {
     }
 
     randomPassword();
-
-    resp();
+    allsymbols = "";
+    result();
 
 });
 
@@ -59,11 +58,16 @@ function randomPassword() {
     return password;
 }
 
-function resp() {
-    // document.querySelector('span').remove();
+const resp = document.querySelector('.response');
 
-    let resp = document.createElement('span');
-    // resp.classList.add('response');
-    resp.textContent = password;
-    form.append(resp);
+function result() {
+    resp.value = '';
+    resp.value = password;
 }
+
+const btn = document.getElementById("copyText");
+
+btn.addEventListener('click', () => {
+    resp.select();
+    document.execCommand("copy");
+});
