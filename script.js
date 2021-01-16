@@ -1,10 +1,8 @@
 'use strict';
 
-let allsymbols = "",
-    password = "";
+let allsymbols = '', passlength, password;
 
-const passlength = document.querySelector('#length').value,
-    form = document.querySelector('form');
+const form = document.querySelector('form');
 
 const passIngridients = {
     nums: "1234567890",
@@ -15,6 +13,8 @@ const passIngridients = {
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    passlength = document.querySelector('#length').value;
 
     document.querySelectorAll('input[type=checkbox]').forEach(function (elem) {
 
@@ -32,6 +32,8 @@ form.addEventListener('submit', (event) => {
 
     if (allsymbols == "") {
         console.log('Error');
+        password = 'Ошибка';
+        return result();
     }
 
     randomPassword();
@@ -45,7 +47,7 @@ function randomPassword() {
 
     password = "";
 
-    for (let i = 0; i <= passlength; i++) {
+    for (let i = 0; i <= passlength - 1; i++) {
 
         let pickRandomSymbols = function (symbol) {
             return symbol[Math.floor(Math.random() * symbol.length)]
