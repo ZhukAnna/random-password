@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body{
+    height: calc(100vh - 20px);
+    margin: 0;
+    padding: 10px;
+    background-color: #4CD16F;
+    background-image:  linear-gradient(-45deg, #566EC4 0%, #4CD16F 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+fieldset {
+    border: none;
+}
+legend {
+    font-size: 1.6em;
+    text-align: center;
+}
+.wrapper{
+    max-width: 720px;
+    min-height: 360px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 18px;
+    color: #00181D;
+    
+}
+.form {
+    margin: 0 auto;
+    max-width: 420px;
+}
+.form p{
+    font-weight: bold;
+}
+.form__input {
+    margin-bottom: 1em;
+}
+
+.label-cbx {
+    user-select: none;
+    cursor: pointer;
+  }
+  .label-cbx input:checked + .checkbox {
+    border-color: #47A4BA;
+  }
+  .label-cbx input:checked + .checkbox svg path {
+    fill: #47A4BA;
+  }
+  .label-cbx input:checked + .checkbox svg polyline {
+    stroke-dashoffset: 0;
+  }
+  .label-cbx:hover .checkbox svg path {
+    stroke-dashoffset: 0;
+  }
+  .label-cbx .checkbox {
+    position: relative;
+    top: 2px;
+    float: left;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #A4D8E4;
+    border-radius: 3px;
+  }
+  .label-cbx .checkbox svg {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+  }
+  .label-cbx .checkbox svg path {
+    fill: none;
+    stroke: #47A4BA;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 71px;
+    stroke-dashoffset: 71px;
+    transition: all 0.6s ease;
+  }
+  .label-cbx .checkbox svg polyline {
+    fill: none;
+    stroke: #FFF;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 18px;
+    stroke-dashoffset: 18px;
+    transition: all 0.3s ease;
+  }
+  .label-cbx > span {
+    pointer-events: none;
+    vertical-align: middle;
+  }
+  .label-cbx:focus > span {
+    font-weight: bold;
+  }
+
+.input-number {
+    display: inline-flex;
+    align-items: center;
+    background: #47A4BA;
+    border: 2px solid #47A4BA;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input-number__input {
+    background: #47A4BA;
+    width: 26px;
+    height: 26px;
+    padding: 3px;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    text-align: center;
+}
+.input-number__input:focus {
+    background: #1C6E81;
+    outline: none;
+}
+
+.input-number__minus,
+.input-number__plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    padding: 0 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.result {
+    height: 22px;
+    padding: 5px 16px;
+    background: #FFF;
+    border: 2px solid #A4D8E4;
+    border-radius: 10px;
+    color: #1C6E81;
+    font-size: 18px;
+}
+.result:focus {
+    outline: none;
+}
+.result::selection {
+    background: #A4D8E4;
+    color: #1C6E81;
+}
+
+.btn {
+    height: 36px;
+    padding: 5px 16px;
+    background-color: #4CD16F;
+    border: 2px solid #4CD16F;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 18px;
+}
+.btn:hover {
+    background-color: #1E913C;
+    border: 2px solid #1E913C;  
+}
+.btn:focus {
+    outline: none;
+}
+.btn:focus-visible {
+    background-color: #1E913C;
+    outline: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}

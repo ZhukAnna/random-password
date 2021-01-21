@@ -2,15 +2,38 @@
 
 let allsymbols = '', passlength, password;
 
-const form = document.querySelector('form');
+const form = document.querySelector('form'),
+    resp = document.querySelector('.result'),
+    btn = document.getElementById("copyText"),
+    passIngridients = {
+        nums: "1234567890",
+        letters: "qwertyuiopasdfghjklzxcvbnm",
+        upletters: "QWERTYUIOPASDFGHJKLZXCVBNM",
+        symbols: "!@$%^#&*-+"
+    };
 
-const passIngridients = {
-    nums: "1234567890",
-    letters: "qwertyuiopasdfghjklzxcvbnm",
-    upletters: "QWERTYUIOPASDFGHJKLZXCVBNM",
-    symbols: "!$%#&*-+"
-};
+// input type number 
+document.querySelector('.input-number__minus').addEventListener('click', () => {
+    passlength = document.querySelector('#length').value;
+    if (passlength > 4) {
+        document.querySelector('#length').value = +passlength - 1;
+    }
+});
 
+document.querySelector('.input-number__plus').addEventListener('click', () => {
+    passlength = document.querySelector('#length').value;
+    if (passlength < 20) {
+        document.querySelector('#length').value = +passlength + 1;
+    }
+});
+
+document.querySelectorAll('.input-number__input').forEach(function (el) {
+    el.addEventListener('input', function () {
+        this.value = this.value.replace(/[^\d]/g, '');
+    });
+});
+
+// create password
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -33,17 +56,23 @@ form.addEventListener('submit', (event) => {
     if (allsymbols == "") {
         console.log('Error');
         password = 'Ошибка';
-        return result();
+        return showResult();
     }
 
-    randomPassword();
-    allsymbols = "";
-    result();
+    createPassword();
+    resetAll();
+    showResult();
 
 });
 
+//copy password
+btn.addEventListener('click', () => {
+    resp.select();
+    document.execCommand("copy");
+    btn.innerText = "Скопировано!";
+});
 
-function randomPassword() {
+function createPassword() {
 
     password = "";
 
@@ -60,16 +89,12 @@ function randomPassword() {
     return password;
 }
 
-const resp = document.querySelector('.response');
-
-function result() {
+function showResult() {
     resp.value = '';
     resp.value = password;
 }
 
-const btn = document.getElementById("copyText");
-
-btn.addEventListener('click', () => {
-    resp.select();
-    document.execCommand("copy");
-});
+function resetAll() {
+    btn.innerText = "Копировать";
+    allsymbols = "";
+}
