@@ -21,9 +21,9 @@ cbxs.forEach(function (cbx) {
         let amountOfChecked = document.querySelectorAll('input[type=checkbox]:checked').length;
 
         if (amountOfChecked > 0) {
-            document.querySelector('#createPass').removeAttribute('disabled');
+            document.querySelector('.form__btn').removeAttribute('disabled');
         } else {
-            document.querySelector('#createPass').setAttribute('disabled', 'disabled');
+            document.querySelector('.form__btn').setAttribute('disabled', 'disabled');
         }
     });
 });
@@ -55,7 +55,6 @@ form.addEventListener('submit', (event) => {
 
         if (elem.checked) {
             Object.keys(passIngridients).forEach(function (key) {
-
                 if (key == elem.name) {
                     allsymbols += passIngridients[key];
                 }

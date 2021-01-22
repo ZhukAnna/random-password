@@ -2,6 +2,7 @@
 
 body{
     height: calc(100vh - 20px);
+    min-width: 320px;
     margin: 0;
     padding: 10px;
     background-color: #4CD16F;
@@ -32,7 +33,7 @@ legend {
 }
 .form {
     margin: 0 auto;
-    max-width: 420px;
+    max-width: 438px;
 }
 .form p{
     font-weight: bold;
@@ -47,20 +48,31 @@ legend {
 .label-cbx {
     user-select: none;
     cursor: pointer;
-  }
-  .label-cbx input:checked + .checkbox {
+    font-size: 14px;
+}
+.label-cbx > span {
+    pointer-events: none;
+    vertical-align: middle;
+}
+.label-cbx:hover .checkbox svg path,
+input[type='checkbox']:focus-visible + .checkbox svg path {
+    stroke-dashoffset: 0;
+}
+.label-cbx:hover span,
+input[type='checkbox']:focus-visible ~ span {
+    font-weight: bold;
+}
+input[type='checkbox']:checked + .checkbox {
     border-color: #47A4BA;
-  }
-  .label-cbx input:checked + .checkbox svg path {
+}
+input[type='checkbox']:checked + .checkbox svg path {
     fill: #47A4BA;
-  }
-  .label-cbx input:checked + .checkbox svg polyline {
+}
+input[type='checkbox']:checked + .checkbox svg polyline {
     stroke-dashoffset: 0;
-  }
-  .label-cbx:hover .checkbox svg path {
-    stroke-dashoffset: 0;
-  }
-  .label-cbx .checkbox {
+}
+
+.checkbox {
     position: relative;
     top: 2px;
     float: left;
@@ -69,13 +81,13 @@ legend {
     height: 16px;
     border: 2px solid #A4D8E4;
     border-radius: 3px;
-  }
-  .label-cbx .checkbox svg {
+}
+ .checkbox svg {
     position: absolute;
     top: -2px;
     left: -2px;
-  }
-  .label-cbx .checkbox svg path {
+}
+.checkbox svg path {
     fill: none;
     stroke: #47A4BA;
     stroke-width: 2;
@@ -84,8 +96,8 @@ legend {
     stroke-dasharray: 71px;
     stroke-dashoffset: 71px;
     transition: all 0.6s ease;
-  }
-  .label-cbx .checkbox svg polyline {
+}
+.checkbox svg polyline {
     fill: none;
     stroke: #FFF;
     stroke-width: 2;
@@ -94,14 +106,7 @@ legend {
     stroke-dasharray: 18px;
     stroke-dashoffset: 18px;
     transition: all 0.3s ease;
-  }
-  .label-cbx > span {
-    pointer-events: none;
-    vertical-align: middle;
-  }
-  .label-cbx:focus > span {
-    font-weight: bold;
-  }
+}
 
 .input-number {
     display: inline-flex;
@@ -142,7 +147,8 @@ legend {
 }
 
 .result {
-    height: 22px;
+    box-sizing: border-box;
+    height: 36px;
     padding: 5px 16px;
     background: #FFF;
     border: 2px solid #A4D8E4;
@@ -160,15 +166,26 @@ legend {
     background: #A4D8E4;
     color: #1C6E81;
 }
+.result, .copy {
+    width: 100%;
+}
+@media (min-width: 504px) {
+    .result, .copy {
+        width: auto;
+    }
+}
 
 .btn {
     height: 36px;
+    position: relative;
     padding: 5px 16px;
     background-color: #4CD16F;
     border: 2px solid #4CD16F;
     border-radius: 10px;
     color: #FFF;
     font-size: 18px;
+    overflow: hidden;
+    cursor: pointer;
 }
 .btn:disabled {
     background-color: #A9EDBB;
@@ -188,6 +205,27 @@ legend {
 .btn:focus-visible {
     background-color: #1E913C;
     outline: none;
+}
+.btn:after {
+    content: "";
+    background: #84EDA0;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    margin: auto;
+    border-radius: 50%;
+    transform: scale(10);
+    transition: all 1s ease-in-out;
+}
+.btn:active:after {
+    transform: scale(0);
+    opacity: 1;
+    transition: 0s;
 }
 
 .visually-hidden {
