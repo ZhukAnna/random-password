@@ -1,8 +1,10 @@
 'use strict';
 
-let allsymbols = '', passlength, password;
+let allsymbols = '', password;
 
 const form = document.querySelector('form'),
+    cbxs = document.querySelectorAll('input[type=checkbox]'),
+    passlength = document.querySelector('#length'),
     resp = document.querySelector('.result'),
     btn = document.getElementById("copyText"),
     passIngridients = {
@@ -12,18 +14,30 @@ const form = document.querySelector('form'),
         symbols: "!@$%^#&*-+"
     };
 
+// checkboxes
+cbxs.forEach(function (cbx) {
+    cbx.addEventListener('change', () => {
+
+        let amountOfChecked = document.querySelectorAll('input[type=checkbox]:checked').length;
+
+        if (amountOfChecked > 0) {
+            document.querySelector('#createPass').removeAttribute('disabled');
+        } else {
+            document.querySelector('#createPass').setAttribute('disabled', 'disabled');
+        }
+    });
+});
+
 // input type number 
 document.querySelector('.input-number__minus').addEventListener('click', () => {
-    passlength = document.querySelector('#length').value;
-    if (passlength > 4) {
-        document.querySelector('#length').value = +passlength - 1;
+    if (passlength.value > 4) {
+        passlength.value = +passlength.value - 1;
     }
 });
 
 document.querySelector('.input-number__plus').addEventListener('click', () => {
-    passlength = document.querySelector('#length').value;
-    if (passlength < 20) {
-        document.querySelector('#length').value = +passlength + 1;
+    if (passlength.value < 20) {
+        passlength.value = +passlength.value + 1;
     }
 });
 
@@ -37,27 +51,17 @@ document.querySelectorAll('.input-number__input').forEach(function (el) {
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    passlength = document.querySelector('#length').value;
-
-    document.querySelectorAll('input[type=checkbox]').forEach(function (elem) {
+    cbxs.forEach(function (elem) {
 
         if (elem.checked) {
             Object.keys(passIngridients).forEach(function (key) {
 
                 if (key == elem.name) {
-                    console.log(`Добавляем...${elem.name}`);
                     allsymbols += passIngridients[key];
-                    console.log(allsymbols);
                 }
             });
         }
     });
-
-    if (allsymbols == "") {
-        console.log('Error');
-        password = 'Ошибка';
-        return showResult();
-    }
 
     createPassword();
     resetAll();
@@ -76,7 +80,7 @@ function createPassword() {
 
     password = "";
 
-    for (let i = 0; i <= passlength - 1; i++) {
+    for (let i = 0; i <= passlength.value - 1; i++) {
 
         let pickRandomSymbols = function (symbol) {
             return symbol[Math.floor(Math.random() * symbol.length)]
@@ -85,16 +89,18 @@ function createPassword() {
         password += pickRandomSymbols(allsymbols);
     }
 
-    console.log(password);
     return password;
 }
 
 function showResult() {
     resp.value = '';
     resp.value = password;
+    resp.removeAttribute('disabled');
+    btn.removeAttribute('disabled');
 }
 
 function resetAll() {
+
     btn.innerText = "Копировать";
     allsymbols = "";
 }

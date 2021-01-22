@@ -40,6 +40,9 @@ legend {
 .form__input {
     margin-bottom: 1em;
 }
+.form__btn {
+    width: 100%;
+}
 
 .label-cbx {
     user-select: none;
@@ -147,6 +150,9 @@ legend {
     color: #1C6E81;
     font-size: 18px;
 }
+.result:disabled {
+    border: 2px solid #A9EDBB;
+}
 .result:focus {
     outline: none;
 }
@@ -163,6 +169,14 @@ legend {
     border-radius: 10px;
     color: #FFF;
     font-size: 18px;
+}
+.btn:disabled {
+    background-color: #A9EDBB;
+    border: 2px solid #A9EDBB;
+}
+.btn:disabled:hover {
+    background-color: #A9EDBB;
+    border: 2px solid #A9EDBB;
 }
 .btn:hover {
     background-color: #1E913C;
