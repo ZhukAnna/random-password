@@ -6,12 +6,16 @@ body{
     margin: 0;
     padding: 10px;
     background-color: #4CD16F;
-    background-image:  linear-gradient(-45deg, #566EC4 0%, #4CD16F 100%);
-    background-repeat: no-repeat;
-    background-size: cover;
     color: #FFF;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
+}
+@media (min-width: 481px){
+    body {
+        background-image:  linear-gradient(-45deg, #566EC4 0%, #4CD16F 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 fieldset {
     border: none;
@@ -23,13 +27,17 @@ legend {
 .wrapper{
     max-width: 720px;
     min-height: 360px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 40px 20px;
     background-color: #FFF;
     border: 2px solid #FFF;
     border-radius: 18px;
     color: #00181D;
-    
+}
+@media (min-width: 481px) {
+.wrapper{
+    margin: 40px auto;
+}
 }
 .form {
     margin: 0 auto;
@@ -169,7 +177,7 @@ input[type='checkbox']:checked + .checkbox svg polyline {
 .result, .copy {
     width: 100%;
 }
-@media (min-width: 504px) {
+@media (min-width: 481px) {
     .result, .copy {
         width: auto;
     }
@@ -235,3 +243,5 @@ input[type='checkbox']:checked + .checkbox svg polyline {
     height: 1px;
     margin: -1px;
 }
+
+/* colors https://colorscheme.ru/#3n51TkkE8rTBR */
