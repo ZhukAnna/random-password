@@ -13,7 +13,7 @@ const form = document.querySelector('form'),
         upletters: "QWERTYUIOPASDFGHJKLZXCVBNM",
         symbols: "!@$%^#&*-+"
     };
-    const pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}/;
+    const pattern = /(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])(?=.*[~'`!@#№?$%^&*()=+<>|\/\\.,:;\[\]{} \x22-]).{8,25}/g;
 
 // checkboxes
 cbxs.forEach(function (cbx) {
