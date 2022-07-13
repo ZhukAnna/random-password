@@ -13,6 +13,7 @@ const form = document.querySelector('form'),
         upletters: "QWERTYUIOPASDFGHJKLZXCVBNM",
         symbols: "!@$%^#&*-+"
     };
+    const pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}/;
 
 // checkboxes
 cbxs.forEach(function (cbx) {
@@ -75,6 +76,13 @@ btn.addEventListener('click', () => {
     btn.innerText = "Скопировано!";
 });
 
+// check password
+function checkPassword() {
+    
+    console.log(password, Boolean(password.match(pattern)))
+   return Boolean(password.match(pattern));
+}
+
 function createPassword() {
 
     password = "";
@@ -87,7 +95,7 @@ function createPassword() {
 
         password += pickRandomSymbols(allsymbols);
     }
-
+    if (!checkPassword()) createPassword();
     return password;
 }
 
